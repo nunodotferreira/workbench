@@ -32,20 +32,22 @@ This guide contains only the essentials to get you started fast, for a comprehen
 ### 1. Installation and configuration
 
 
-1.1 Clone the repository
+__1.1 Clone the repository__
 
-:   `git clone https://github.com/Botomatic-PHP/Workbench.git Botomatic`
+```cli
+git clone https://github.com/Botomatic-PHP/Workbench.git Botomatic
+```
 
-1.2 Environment configuration
+__1.2 Environment configuration__
 
-: * Move `.env.example` to `.env`
-  * Make sure BOTOMATIC_FACEBOOK_DEBUG is set to true
-  * Setup any needed env. variables like database connection
+* Move `.env.example` to `.env`
+* Make sure BOTOMATIC_FACEBOOK_DEBUG is set to true
+* Setup any needed env. variables like database connection
 
-1.3 Install Botomatic
+__1.3 Install Botomatic__
 
-: * Install the framework with dependencies: `composer install`
-  * Generate an application key: `php artisan key:generate`
+* Install the framework with dependencies: `composer install`
+* Generate an application key: `php artisan key:generate`
 
 ---
 
@@ -53,7 +55,9 @@ This guide contains only the essentials to get you started fast, for a comprehen
 
 To test the bot locally, you have to use the CLI Bot. Keep in mind it's very limited and made to be used only for development purposes
 
-`artisan bf:cli`
+```cli
+artisan bf:cli
+```
 
 You should see "Starting CLI Bot...:"
 
@@ -65,12 +69,13 @@ It should respond with "Hello Test Test"
 
 ### 3. Basics
 
-3.1 Folder structure
-: All Bot related files are in `app/Bot/Facebook` except for the configuration file which is located under `config/botomatic/facebook.php`
+__3.1 Folder structure__
 
-3.2 States
+All Bot related files are in `app/Bot/Facebook` except for the configuration file which is located under `config/botomatic/facebook.php`
 
-: Botomatic structures the conversation in __states__. A state receives the message from the user and either responds or moves to another __state__.
+__3.2 States__
+
+Botomatic structures the conversation in __states__. A state receives the message from the user and either responds or moves to another __state__.
 
 Each state will have an additional 2 objects: `Handlers/Message` and `Handlers/Reponses` used to structure the code more efficiently, a simple process will look like this:
 
@@ -88,9 +93,9 @@ Any domain logic can be stored here but it is recommended to use a sepparate fil
 The flow of the bot is controlled by the response, this returns `\Botomatic\Engine\Facebook\Abstracts\States\Response\Handler`
 
 
-3.3 Templates
+__3.3 Templates__
 
-: Messenger Platform supports different [Templates](https://developers.facebook.com/docs/messenger-platform/send-messages/templates/) like buttons, tiles, lists etc. 
+Messenger Platform supports different [Templates](https://developers.facebook.com/docs/messenger-platform/send-messages/templates/) like buttons, tiles, lists etc. 
 
 Templates are stored in `app/Bot/Facebook/Templates/*Type*`, to send them as a response you simply "attach" them
 to the response object:
@@ -134,23 +139,23 @@ A state contains by default the following folders and files:
 * * StateName.php
 
 
-4.1 Listener
+__4.1 Listener__
 
-: This is the default __State__ that handles the start of the conversation. There can only be 1 Listener.
+This is the default __State__ that handles the start of the conversation. There can only be 1 Listener.
 
-4.2 Workflow
+__4.2 Workflow__
 
-: Most of the conversation is handle by this type of __State__, the routing or "mapping" of them is defined in `app/Bot/Facebook/Routes/Workflow.php`.
+Most of the conversation is handle by this type of __State__, the routing or "mapping" of them is defined in `app/Bot/Facebook/Routes/Workflow.php`.
 
 By default, the status of a __State__ is "active", whenever it is changed, based on the mapping defined it moves to the next state. 
 
-4.3 Fallback
+__4.3 Fallback__
 
-: Whenever the conversation fails by whatever reason the __Fallback State__ is called. There can only be 1 Fallback State.
+Whenever the conversation fails by whatever reason the __Fallback State__ is called. There can only be 1 Fallback State.
 
-4.4 Filters
+__4.4 Filters__
 
-: Simple __States__ through which the incoming message passes through, they can stop the flow and respond with a message or "move" to another __Workflow__ state regardless of the current "active state".
+Simple __States__ through which the incoming message passes through, they can stop the flow and respond with a message or "move" to another __Workflow__ state regardless of the current "active state".
 
 There are 2 types of filters: 
 
@@ -161,9 +166,9 @@ Postbacks are sent when a user clicks on a button within a template with the exc
 
 Filters are mapped in `app/Bot/Facebook/Routes/Filters.php` and `app/Bot/Facebook/Routes/Postbacks.php`. The order in the array is the same order in which the message will go through.
 
-4.5 Background
+__4.5 Background__
 
-: Background states are used to push a message to user(s) outside the context of a conversation, it can be a regular message or "jump" to a workflow state.
+Background states are used to push a message to user(s) outside the context of a conversation, it can be a regular message or "jump" to a workflow state.
 
 ---
 
@@ -174,33 +179,33 @@ The message handler is a simple object that extend `\Botomatic\Engine\Facebook\A
 This object contains the message (text, image, postback etc) received from the user. The following methods are available:
 
 
-Check if it's a text message
-: `$this->message()->isCallbackMessage()`
+__Check if it's a text message__
+`$this->message()->isCallbackMessage()`
 
 
-Get the text message
-: `$this->message()->getMessage()`
+__Get the text message__
+`$this->message()->getMessage()`
 
-Get the text quick reply (payload) if available
-: `$this->message()->getQuickReply()`
+__Get the text quick reply (payload) if available__
+`$this->message()->getQuickReply()`
 
-Check if it's a Postback
-: `$this->message()->isCallbackPostback()`
+__Check if it's a Postback__
+`$this->message()->isCallbackPostback()`
 
-Get the postback
-: `$this->message()->postback()` this returns an instance of `\Botomatic\Engine\Facebook\Entities\Callbacks\Postback`
+__Get the postback__
+`$this->message()->postback()` this returns an instance of `\Botomatic\Engine\Facebook\Entities\Callbacks\Postback`
 
-Check for attachments
-: `$this->message()->hasAttachment()`
+__Check for attachments__
+`$this->message()->hasAttachment()`
 
-Get attachments
-: `$this->message()->getAttachment()`
+__Get attachments__
+`$this->message()->getAttachment()`
 
-Check for location
-: `$this->message()->hasLocation()`
+__Check for location__
+`$this->message()->hasLocation()`
 
-Get location
-: `$this->message()->location()`
+__Get location__
+`$this->message()->location()`
 
 
 ---
@@ -222,22 +227,26 @@ Response example:
 
 Available methods:
 
-Add a message
-: `addMessage(string $message)`
+__Add a message__
+`addMessage(string $message)`
 
 You can add as many messages as you like (keep in mind Facebook's limitations), they will be sent in the same order they are called.
 
-Add Image (url)
-: `addImage(string $image)`
+__Add Image (url)__
 
-Ask for location
-: `askForLocation($title = 'Please share your location:')`
+`addImage(string $image)`
 
-Stop the flow and respond to the user
-: `sendResponse()`
+__Ask for location__
 
-Delay the message
-: `delay($seconds = 1)`
+`askForLocation($title = 'Please share your location:')`
+
+__Stop the flow and respond to the user__
+
+`sendResponse()`
+
+__Delay the message__
+
+`delay($seconds = 1)`
 
 You can add several delays, the data is sent to facebook in the same order it's being defined.
 
@@ -250,8 +259,8 @@ Practical example:
           ->sendResponse();
 ```
 
-Add a quick reply
-: `addQuickReplies(new \App\Bot\Facebook\Templates\QuickReplies\General\Options())`
+__Add a quick reply__
+`addQuickReplies(new \App\Bot\Facebook\Templates\QuickReplies\General\Options())`
 
 ---
 
@@ -261,15 +270,17 @@ Botomatic supports all [Templates](https://developers.facebook.com/docs/messenge
 
 For examples, check default bot.
 
-Generate new Quick Reply
-: `artisan bf:qr {namespace} {name}`
+__Generate new Quick Reply__
 
-Generate Generic Template
-: `artisan bf:gt {namespace} {name}`
+`artisan bf:qr {namespace} {name}`
 
-Generate Button Template
+__Generate Generic Template__
 
-: `artisan bf:bt {namespace} {name}`
+`artisan bf:gt {namespace} {name}`
+
+__Generate Button Template__
+
+`artisan bf:bt {namespace} {name}`
 
 ---
 
@@ -279,9 +290,9 @@ For practical examples on how a Bot is structured and various functionalities ch
 
 To play around, you can use the CLI Bot (`artisan bf:cli`).
 
-Buttons in CLI Bot
+__Buttons in CLI Bot__
 
-: Whenever the bot responds with a template, it will be displayed like this:
+Whenever the bot responds with a template, it will be displayed like this:
 
 `Quick Replies:  [Templates]  [Conversation]`
 
@@ -295,7 +306,7 @@ Chatbots for Messenger Platform are Apps that are connected to specific Facebook
 
 __1. Create Facebook App__
 
-: Go to [Facebook Apps](https://developers.facebook.com/apps/) and create a new one. From the Products selection choose __Messenger__
+Go to [Facebook Apps](https://developers.facebook.com/apps/) and create a new one. From the Products selection choose __Messenger__
 
 __2. Setup Webhook__
 
