@@ -206,7 +206,7 @@ $this->message()->isCallbackPostback()
 
 __Get the postback__
 ```cli
-$this->message()->postback()` this returns an instance of `\Botomatic\Engine\Facebook\Entities\Callbacks\Postback
+$this->message()->postback()
 ```
 
 __Check for attachments__
@@ -292,7 +292,9 @@ Practical example:
 ```
 
 __Add a quick reply__
-`addQuickReplies(new \App\Bot\Facebook\Templates\QuickReplies\General\Options())`
+```cli
+addQuickReplies(new \App\Bot\Facebook\Templates\QuickReplies\General\Options())
+```
 
 ---
 
@@ -373,3 +375,5 @@ Next we need to tell botomatic to what pages it responds, go to and under __page
 ```
 
 Finally, we need to subscribe the Webhook to this page, under __Webhooks__ select the proper Facebook Page.
+
+Now go to Facebook page and send a message.
