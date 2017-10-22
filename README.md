@@ -42,6 +42,7 @@ __1.2 Environment configuration__
 
 * Move `.env.example` to `.env`
 * Make sure BOTOMATIC_FACEBOOK_DEBUG is set to true
+* Set BOTOMATIC_FACEBOOK_TEST_URL to your project's url
 * Setup any needed env. variables like database connection
 
 __1.3 Install Botomatic__
