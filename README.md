@@ -121,12 +121,16 @@ You can easily generate a state using this commands:
 
 __Workflow__
 
-`artisan bf:state {namespace} {name}`
+```cli
+artisan bf:state {namespace} {name}
+```
 
 
 __Filter__
 
-`artisan bf:filter {namespace} {name}`
+```cli
+artisan bf:filter {namespace} {name}
+```
 
 Where __namespace__ is the folder within the category, for example the default bot has all it's state's in __Test__ folder.
 
@@ -180,32 +184,50 @@ This object contains the message (text, image, postback etc) received from the u
 
 
 __Check if it's a text message__
-`$this->message()->isCallbackMessage()`
+```cli
+$this->message()->isCallbackMessage()
+```
 
 
 __Get the text message__
-`$this->message()->getMessage()`
+```cli
+$this->message()->getMessage()
+```
 
 __Get the text quick reply (payload) if available__
-`$this->message()->getQuickReply()`
+```cli
+$this->message()->getQuickReply()
+```
 
 __Check if it's a Postback__
-`$this->message()->isCallbackPostback()`
+```cli
+$this->message()->isCallbackPostback()
+```
 
 __Get the postback__
-`$this->message()->postback()` this returns an instance of `\Botomatic\Engine\Facebook\Entities\Callbacks\Postback`
+```cli
+$this->message()->postback()` this returns an instance of `\Botomatic\Engine\Facebook\Entities\Callbacks\Postback
+```
 
 __Check for attachments__
-`$this->message()->hasAttachment()`
+```cli
+$this->message()->hasAttachment()
+```
 
 __Get attachments__
-`$this->message()->getAttachment()`
+```cli
+$this->message()->getAttachment()
+```
 
 __Check for location__
-`$this->message()->hasLocation()`
+```cli
+$this->message()->hasLocation()
+```
 
 __Get location__
-`$this->message()->location()`
+```cli
+$this->message()->location()
+```
 
 
 ---
@@ -228,25 +250,35 @@ Response example:
 Available methods:
 
 __Add a message__
-`addMessage(string $message)`
+```cli
+addMessage(string $message)
+```
 
 You can add as many messages as you like (keep in mind Facebook's limitations), they will be sent in the same order they are called.
 
 __Add Image (url)__
 
-`addImage(string $image)`
+```cli
+addImage(string $image)
+```
 
 __Ask for location__
 
-`askForLocation($title = 'Please share your location:')`
+```cli
+askForLocation($title = 'Please share your location:')
+```
 
 __Stop the flow and respond to the user__
 
-`sendResponse()`
+```cli
+sendResponse()
+```
 
 __Delay the message__
 
-`delay($seconds = 1)`
+```cli
+delay($seconds = 1)
+```
 
 You can add several delays, the data is sent to facebook in the same order it's being defined.
 
@@ -272,15 +304,21 @@ For examples, check default bot.
 
 __Generate new Quick Reply__
 
-`artisan bf:qr {namespace} {name}`
+```cli
+artisan bf:qr {namespace} {name}
+```
 
 __Generate Generic Template__
 
-`artisan bf:gt {namespace} {name}`
+```cli
+artisan bf:gt {namespace} {name}
+```
 
 __Generate Button Template__
 
-`artisan bf:bt {namespace} {name}`
+```cli
+artisan bf:bt {namespace} {name}
+```
 
 ---
 
@@ -294,7 +332,9 @@ __Buttons in CLI Bot__
 
 Whenever the bot responds with a template, it will be displayed like this:
 
-`Quick Replies:  [Templates]  [Conversation]`
+```cli
+Quick Replies:  [Templates]  [Conversation]
+```
 
 To "press" one of the buttons simply type the button name. e.g. `Templates`
 
