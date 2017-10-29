@@ -32,6 +32,7 @@ __1.3 Install Botomatic__
 
 * Install the framework with dependencies: `composer install`
 * Generate an application key: `php artisan key:generate`
+* Run migrations: `php artisan migrate`
 
 ---
 
@@ -40,7 +41,7 @@ __1.3 Install Botomatic__
 To test the bot locally, you have to use the CLI Bot. Keep in mind it's very limited and made to be used only for development purposes
 
 ```cli
-artisan bf:cli
+php artisan bf:cli
 ```
 
 You should see "Starting CLI Bot...:"
