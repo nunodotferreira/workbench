@@ -11,7 +11,6 @@ use \App\Bot\Facebook\States\Filters\Postbacks\Menu\BusinessModel\Payloads;
  */
 class Message extends \Botomatic\Engine\Facebook\Abstracts\States\Message\Handler
 {
-
     /**
      * @return bool
      */

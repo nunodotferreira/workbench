@@ -2,6 +2,8 @@
 
 namespace App\Bot\Facebook\States\States\Fallback\Handlers;
 
+use \Botomatic\Engine\Facebook\Entities\Response;
+
 /**
  * Class Responses
  * @package  App\Bot\Facebook\States\States\Fallback\Handlers
@@ -12,7 +14,7 @@ class Responses extends \Botomatic\Engine\Facebook\Abstracts\States\Response\Han
     /**
      * @return  \Botomatic\Engine\Facebook\Entities\Response
      */
-    public function responseDefault() : \Botomatic\Engine\Facebook\Entities\Response
+    public function responseDefault() : Response
     {
           return $this->response->addMessage('Fallback!')
               ->setStatusActive()

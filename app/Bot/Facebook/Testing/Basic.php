@@ -45,7 +45,7 @@ class Basic extends \Botomatic\Engine\Facebook\Console\Testing\Base
         $this->sendMessage('hi', function (Response $response)
         {
             return $response
-                ->hasMessage('Hi there! type "start the test" to get started');
+                ->hasMessage('Hello!');
         });
     }
 }

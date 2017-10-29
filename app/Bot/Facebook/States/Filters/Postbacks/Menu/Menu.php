@@ -2,6 +2,8 @@
 
 namespace App\Bot\Facebook\States\Filters\Postbacks\Menu;
 
+use \Botomatic\Engine\Facebook\Entities\Response;
+
 /**
  * Class Menu
  * @package  App\Bot\Facebook\States\Filters\Postbacks\Menu
@@ -23,7 +25,7 @@ class Menu extends \Botomatic\Engine\Facebook\Abstracts\States\Filter
      *
      * @return  \Botomatic\Engine\Facebook\Entities\Response
      */
-    protected function process(): \Botomatic\Engine\Facebook\Entities\Response
+    protected function process() : Response
     {
         if ($this->message->isReset())
         {

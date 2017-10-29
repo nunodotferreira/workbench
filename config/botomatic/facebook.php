@@ -1,5 +1,7 @@
 <?php
 
+use \App\Bot\Facebook\States\Filters\Postbacks\Menu\BusinessModel\Payloads as MenuPayloads;
+
 return [
 
     /*------------------------------------------------------------------------------------------------------------------
@@ -53,9 +55,19 @@ return [
                 'composer_input_disabled' => false,
                 'call_to_actions' => [
                     [
-                        'title' => 'Test',
+                        'title' => 'Example',
                         'type' => 'postback',
-                        'payload' => 'test_payload_x'
+                        'payload' => MenuPayloads::PAYLOAD_EXAMPLE
+                    ],
+                    [
+                        'title' => 'Reset',
+                        'type' => 'postback',
+                        'payload' => MenuPayloads::PAYLOAD_RESET
+                    ],
+                    [
+                        'title' => 'Powered by Botomatic',
+                        'type' => 'web_url',
+                        'url' => 'http:botomatic.io'
                     ]
                 ]
             ],

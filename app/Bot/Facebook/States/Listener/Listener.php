@@ -2,6 +2,8 @@
 
 namespace App\Bot\Facebook\States\Listener;
 
+use \Botomatic\Engine\Facebook\Entities\Response;
+
 /**
  * Class Listener
  * @package App\Bot\Facebook\States\Test\Listener
@@ -24,7 +26,7 @@ class Listener extends \Botomatic\Engine\Facebook\Abstracts\States\Workflow
      *
      * @return \Botomatic\Engine\Facebook\Entities\Response
      */
-    protected function process(): \Botomatic\Engine\Facebook\Entities\Response
+    protected function process() : Response
     {
         if ($this->message->saysHi())
         {
@@ -32,23 +34,6 @@ class Listener extends \Botomatic\Engine\Facebook\Abstracts\States\Workflow
         }
 
         /**
-         * Listen for quick reply
-         */
-        elseif ($this->message->wantsConversations())
-        {
-            return $this->response->finish();
-        }
-
-        /**
-         * Return a custom status if match
-         */
-        elseif ($this->message->wantsTemplates())
-        {
-            return $this->response->showTemplates();
-        }
-        /**
-         * Show options as quick reply.
-         *
          * Showing options at every step is good design as it helps user navigate and reach the desired state easier.
          */
         else

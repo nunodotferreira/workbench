@@ -2,24 +2,22 @@
 
 namespace App\Bot\Facebook\States\Listener\Handlers;
 
+use \Botomatic\Engine\Facebook\Entities\Response;
+
 /**
  * Class Responses
  * @package App\Bot\Facebook\States\Listener\Handlers
  */
 class Responses extends \Botomatic\Engine\Facebook\Abstracts\States\Response\Handler
 {
-    const STATUS_SHOW_TEMPLATES = 'custom_status';
-
     /**
      * @param string $name
      *
      * @return \Botomatic\Engine\Facebook\Entities\Response
      */
-    public function responseDefault(string $name) : \Botomatic\Engine\Facebook\Entities\Response
+    public function responseDefault(string $name) : Response
     {
-        return $this->response->addMessage(
-            localizator()->translate('listener', 'hello', ['name' => $name])
-        )
+        return $this->response->addMessage('hello ' . $name)
             ->sendResponse()
             ->setStatusActive();
     }
@@ -27,13 +25,9 @@ class Responses extends \Botomatic\Engine\Facebook\Abstracts\States\Response\Han
     /**
      * @return \Botomatic\Engine\Facebook\Entities\Response
      */
-    public function options() : \Botomatic\Engine\Facebook\Entities\Response
+    public function options() : Response
     {
-        return $this->response
-
-            ->addQuickReplies(new \App\Bot\Facebook\Templates\QuickReplies\General\Options (
-                localizator()->translate('listener', 'options')
-            ))
+        return $this->response->addMessage('Can\'t understand that.... say hi')
             ->sendResponse()
             ->setStatusActive();
     }
@@ -41,16 +35,9 @@ class Responses extends \Botomatic\Engine\Facebook\Abstracts\States\Response\Han
     /**
      * @return \Botomatic\Engine\Facebook\Entities\Response
      */
-    public function finish() : \Botomatic\Engine\Facebook\Entities\Response
+    public function finish() : Response
     {
         return $this->response->setStatusFinish();
     }
 
-    /**
-     * @return \Botomatic\Engine\Facebook\Entities\Response
-     */
-    public function showTemplates() : \Botomatic\Engine\Facebook\Entities\Response
-    {
-        return $this->response->setStatus(self::STATUS_SHOW_TEMPLATES);
-    }
 }

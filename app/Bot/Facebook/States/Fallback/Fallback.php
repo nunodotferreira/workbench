@@ -2,6 +2,8 @@
 
 namespace App\Bot\Facebook\States\Fallback;
 
+use \Botomatic\Engine\Facebook\Entities\Response;
+
 /**
  * Class Fallback
  * @package  App\Bot\Facebook\States\Fallback
@@ -24,7 +26,7 @@ class Fallback extends \Botomatic\Engine\Facebook\Abstracts\States\Workflow
      *
      * @return  \Botomatic\Engine\Facebook\Entities\Response
      */
-    protected function process(): \Botomatic\Engine\Facebook\Entities\Response
+    protected function process() : Response
     {
         return $this->response->responseDefault();
     }

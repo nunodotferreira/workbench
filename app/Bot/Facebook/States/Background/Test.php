@@ -21,11 +21,11 @@ class Test extends \Botomatic\Engine\Facebook\Console\Abstracts\Background
         /**
          * Response that is dispatched to facebook
          */
-//        return $this->respond()->addMessage('Hey there!');
+        return $this->respond()->addMessage('Hey!');
 
         /**
          * Response that moves the scope to a new state
          */
-        return $this->jumpToState(new \App\Bot\Facebook\States\Workflow\Test\Background\Background());
+//        return $this->jumpToState();
     }
 }
