@@ -79,21 +79,21 @@ Each __State__ has it's own __Message__ and __Response Handlers__
 
 ---
 
-### 9. Register your bot with Facebook
+### 4. Register your bot with Facebook
 
 Chatbots for Messenger Platform are Apps that are connected to specific Facebook pages. 
 
-__9.1. Create Facebook App__
+__4.1. Create Facebook App__
 
 Go to [Facebook Apps](https://developers.facebook.com/apps/) and create a new one. From the Products selection choose __Messenger__
 
-__9.2. Setup Webhook__
+__4.2. Setup Webhook__
 
 The webhook is the URL where Facebook will send messages from users, for development purposes it is recommeded you use services like ngrok to publicly share a local url. If you use Laravel Valet it's very easy, simply run `valet share`
 
 Working with local url means you will need to update it evertime you run ngrok, you can update it from Facebook App's page under __Webhooks__ -> Edit Subscription
 
-__9.3. Follow these steps to register your bot:__
+__4.3. Follow these steps to register your bot:__
 
 * set "BOTOMATIC_FACEBOOK_CONFIRMATION" to true in .env file
 * click on __Setup Webhooks__ from the App's settings and add your url with this route: `https://ngrok-url/webhook/facebook`
@@ -103,7 +103,7 @@ __9.3. Follow these steps to register your bot:__
 * set BOTOMATIC_FACEBOOK_CONFIRMATION to false
 * set BOTOMATIC_FACEBOOK_DEBUG to false
 
-__9.4 Facebook Page__
+__4.4 Facebook Page__
 
 Next, you need a Facebook page where the bot will be accesibly from, under "Token Generation" select the Facebook page you want to link your bot; a "Page Access Token" is now generated. 
 
