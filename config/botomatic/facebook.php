@@ -67,7 +67,7 @@ return [
                     [
                         'title' => 'Powered by Botomatic',
                         'type' => 'web_url',
-                        'url' => 'http:botomatic.io'
+                        'url' => 'http://botomatic.io'
                     ]
                 ]
             ],
