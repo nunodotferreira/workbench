@@ -34,7 +34,7 @@ class Listener extends \Botomatic\Engine\Facebook\Abstracts\States\Workflow
         }
 
         /**
-         * Showing options at every step is good design as it helps user navigate and reach the desired state easier.
+         * Handling the edge cases is extremely important when building a Chatbot
          */
         else
         {

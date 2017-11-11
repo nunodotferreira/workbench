@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "34a67328ea4fc6745a61e20587f1fa0f",
+    "content-hash": "9f6309116d3b7ac83a868fb60b9caed5",
     "packages": [
         {
             "name": "botomatic/engine",
-            "version": "1.0.3",
+            "version": "1.0.0-beta",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Botomatic-PHP/framework.git",
-                "reference": "1cc656e1f0c36ca2bca8ec8145e02b741b2c5f9f"
+                "url": "https://github.com/botomatic-php/framework.git",
+                "reference": "53d3fd1d0888ab44d6b451b224316a4f257ceef4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Botomatic-PHP/framework/zipball/1cc656e1f0c36ca2bca8ec8145e02b741b2c5f9f",
-                "reference": "1cc656e1f0c36ca2bca8ec8145e02b741b2c5f9f",
+                "url": "https://api.github.com/repos/botomatic-php/framework/zipball/53d3fd1d0888ab44d6b451b224316a4f257ceef4",
+                "reference": "53d3fd1d0888ab44d6b451b224316a4f257ceef4",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 }
             ],
             "description": "Botomatic PHP framework engine",
-            "time": "2017-10-15T08:21:32+00:00"
+            "time": "2017-10-29T12:18:31+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3926,7 +3926,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "botomatic/engine": 10
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
