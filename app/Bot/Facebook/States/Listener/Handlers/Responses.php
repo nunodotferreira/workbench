@@ -31,13 +31,4 @@ class Responses extends \Botomatic\Engine\Facebook\Abstracts\States\Response\Han
             ->sendResponse()
             ->setStatusActive();
     }
-
-    /**
-     * @return \Botomatic\Engine\Facebook\Entities\Response
-     */
-    public function finish() : Response
-    {
-        return $this->response->setStatusFinish();
-    }
-
 }
