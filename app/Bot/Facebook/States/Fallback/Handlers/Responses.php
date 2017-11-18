@@ -1,12 +1,12 @@
 <?php 
 
-namespace App\Bot\Facebook\States\States\Fallback\Handlers;
+namespace App\Bot\Facebook\States\Fallback\Handlers;
 
 use \Botomatic\Engine\Facebook\Entities\Response;
 
 /**
  * Class Responses
- * @package  App\Bot\Facebook\States\States\Fallback\Handlers
+ * @package  App\Bot\Facebook\States\Fallback\Handlers
  */
 class Responses extends \Botomatic\Engine\Facebook\Abstracts\States\Response\Handler
 {

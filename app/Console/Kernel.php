@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Bot\Facebook\States\Background\Test::class,
+        \App\Bot\Facebook\Testing\Basic::class,
     ];
 
     /**

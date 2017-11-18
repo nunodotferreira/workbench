@@ -12,12 +12,12 @@ class Fallback extends \Botomatic\Engine\Facebook\Abstracts\States\Workflow
 {
 
     /**
-     * @var  \App\Bot\Facebook\States\States\Fallback\Handlers\Responses
+     * @var  \App\Bot\Facebook\States\Fallback\Handlers\Responses
      */
     protected $response;
 
     /**
-     * @var  \App\Bot\Facebook\States\States\Fallback\Handlers\Message
+     * @var  \App\Bot\Facebook\States\Fallback\Handlers\Message
      */
     protected $message;
 
