@@ -36,6 +36,15 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        if (app()->isLocal())
+        {
+            return response()->json([
+                'error' => $exception->getMessage(),
+                'file' => $exception->getFile(),
+                'line' => $exception->getLine(),
+            ]);
+        }
+
         parent::report($exception);
     }
 
