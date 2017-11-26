@@ -43,6 +43,8 @@ return [
          * deliver the user's page-scoped ID (PSID).
          *
          * https://developers.facebook.com/docs/messenger-platform/messenger-profile/get-started-button
+         *
+         * App\Bot\Facebook\States\Filters\Postbacks\GetStarted Postback is already responding to this payload
          */
         'get_started_button' => 'payload_get_started',
 
@@ -55,17 +57,17 @@ return [
                 'composer_input_disabled' => false,
                 'call_to_actions' => [
                     [
-                        'title' => 'Example',
+                        'title' => 'ℹ️ Example',
                         'type' => 'postback',
                         'payload' => MenuPayloads::PAYLOAD_EXAMPLE
                     ],
                     [
-                        'title' => 'Reset',
+                        'title' => '🔃 Reset',
                         'type' => 'postback',
                         'payload' => MenuPayloads::PAYLOAD_RESET
                     ],
                     [
-                        'title' => 'Powered by Botomatic',
+                        'title' => '🤖 Powered by Botomatic',
                         'type' => 'web_url',
                         'url' => 'http://botomatic.io'
                     ]
